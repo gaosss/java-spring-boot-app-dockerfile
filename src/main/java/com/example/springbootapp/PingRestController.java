@@ -13,9 +13,14 @@ public class PingRestController {
   @Autowired
   BuildProperties buildInfo;
 
-  @RequestMapping(method = RequestMethod.GET, path = "/api/ping")
+  @RequestMapping(method = RequestMethod.GET, path = "/api")
   public ResponseEntity<String> getPing() {
     return ResponseEntity.ok("Hello world, here is " + buildInfo.getName() + " version " + buildInfo.getVersion());
+  }
+
+  @RequestMapping(method = RequestMethod.GET, path = "/")
+  public ResponseEntity<String> getPingRoot() {
+    return ResponseEntity.ok("Hello world, here is get ping root");
   }
 
 }
